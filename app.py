@@ -187,7 +187,7 @@ def render_backtesting_normal(ticker, capital_inicial):
 
     ganancia_total   = capital_final - capital_inicial
     ganancia_pct_bt  = ganancia_total / capital_inicial * 100
-    bh_final         = df_equity["Buy & Hold"].iloc[-1] if not df_equity.empty else capital_inicial
+    bh_final         = df_equity["Buy and Hold"].iloc[-1] if not df_equity.empty else capital_inicial
     bh_ganancia      = bh_final - capital_inicial
     bh_pct           = bh_ganancia / capital_inicial * 100
     trades_gan       = len(df_trades[df_trades["Resultado"] == "✅ Ganancia"]) if not df_trades.empty else 0
