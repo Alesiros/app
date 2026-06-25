@@ -195,8 +195,8 @@ def render_backtesting_normal(ticker, capital_inicial):
     win_rate         = (trades_gan / trades_tot * 100) if trades_tot > 0 else 0
 
     cb1, cb2, cb3, cb4 = st.columns(4)
-    cb1.metric("Capital Final (Estrategia)", f"${capital_final:,.2f}", delta=f"{ganancia_pct_bt:+.1f}%")
-    cb2.metric("Ganancia vs Capital Inicial", f"${ganancia_total:+,.2f}")
+    cb1.metric("Capital Final", f"${capital_final:,.2f}", delta=f"{ganancia_pct_bt:+.1f}%")
+    cb2.metric("Ganancia del Capital Inicial", f"${ganancia_total:+,.2f}")
     cb3.metric("Buy and Hold", f"${bh_final:,.2f}", delta=f"{bh_pct:+.1f}%")
     cb4.metric("Deferencia a nuestra estrategia", f"${ganancia_total - bh_ganancia:+,.2f}")
 
@@ -311,7 +311,7 @@ if st.button("Análizar", type="primary", use_container_width=True):
         st.error("Debes ingresar al menos un ticker antes de ejecutar el análisis")
         st.stop()
 
-    with st.spinner(f"Descargando los datos para los tickers..."):
+    with st.spinner(f"Descargando los datos para los tickers"):
         datos = {}
         for ticker in tickers_validos:
             try:
